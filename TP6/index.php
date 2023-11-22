@@ -17,11 +17,16 @@ class Player
 class Encounter
 {
 
-    public function probabilityAgainst(int $levelPlayerOne, int $againstLevelPlayerTwo)
+    public function setprobabilityAgainst(int $levelPlayerOne, int $againstLevelPlayerTwo)
     {
         return 1/(1+(10 ** (($againstLevelPlayerTwo - $levelPlayerOne)/400)));
     }
-
+    /*
+    public function getprobabilityAgainst():int
+    {
+        $this->levelPlayerOne;
+    }
+    */
     public function setNewLevel(int &$levelPlayerOne, int $againstLevelPlayerTwo, int $playerOneResult)
     {
         if (!in_array($playerOneResult, RESULT_POSSIBILITIES)) {
@@ -30,7 +35,12 @@ class Encounter
 
         $levelPlayerOne += (int) (32 * ($playerOneResult - $this->probabilityAgainst($levelPlayerOne, $againstLevelPlayerTwo)));
     }
-
+    /*
+    public function getNewLevel():int
+    {
+        return $this->levelplayer;
+    }
+    */
 }
 
 $greg = new Player;
