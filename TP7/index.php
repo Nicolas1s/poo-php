@@ -68,6 +68,11 @@ class Player
     }
 }
 
+class QueuingPlayer
+{
+    
+}
+
 $greg = new Player('greg', 400);
 $jade = new Player('jade', 476);
 
