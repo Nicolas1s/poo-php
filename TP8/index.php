@@ -11,13 +11,13 @@
 
 declare(strict_types=1);
 
-namespace{
+namespace {
     spl_autoload_register(function($fqcn){
         $path = str_replace(['App', '\\'], ['src', '/'], $fqcn) . '.php';
         require $path;
     });
-    require_once('Lobby.php');
-    require_once('Player.php');
+    require_once('src/Lobby.php');
+    require_once('src/Player.php');
 
     use App\MatchMaker\Player\BlitzPlayer;
     use App\MatchMaker\Lobby\Lobby;
