@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 namespace App\MatchMaker\Player{
-    abstract class AbstractPlayer
+    use App\MatchMaker\Interfaces\PlayerInterface;
+    use App\MatchMaker\Interfaces\QueuingPlayerInterface;
+    abstract class AbstractPlayer implements PlayerInterface
     {
         public $name;
         public $ratio;
@@ -45,7 +47,7 @@ namespace App\MatchMaker\Player{
         }
     }
 
-    class QueuingPlayer extends Player
+    class QueuingPlayer extends Player implements QueuingPlayerInterface
     {
         public $range;
         public function __construct(AbstractPlayer $player, $range = 1)
